@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENJAMIN THE SORCERER</title>
+    <style>
+@import url('https://cdn.jsdelivr.net/gh/fonts-archive/Charter/Charter.css');
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible Next';
+    src: url(fonts/AtkinsonHyperlegibleNext-Regular.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible Next';
+    src: url(fonts/AtkinsonHyperlegibleNext-Bold.woff2) format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible Next';
+    src: url(fonts/AtkinsonHyperlegibleNext-Italic.woff2) format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+
+@media (max-width: 600px) {
+    html { font-size: 22px; }
+}
+
+body {
+    font-family: 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: rgb(25, 25, 25);
+    background: rgb(247, 247, 247);
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Charter, Georgia, 'Times New Roman', serif;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 1.5em;
+    margin-bottom: 0.625em;
+}
+
+h1 { font-size: 1.6rem; color: rgb(51, 51, 51); }
+h2 { font-size: 1.35rem; color: rgb(51, 51, 51); }
+h3 { font-size: 1.15rem; font-weight: bold; color: rgb(51, 51, 51); }
+
+p { margin: 0 0 1em 0; }
+
+blockquote {
+    margin: 1em 0;
+    padding-left: 1.5em;
+    border-left: 3px solid rgb(200, 200, 200);
+    color: rgb(85, 85, 85);
+}
+
+ul, ol { margin: 1em 0; padding-left: 1.5em; }
+li { margin-bottom: 0.3em; }
+
+a { color: rgb(25, 25, 25); text-decoration: underline; }
+a:hover { color: rgb(26, 195, 255); }
+
+code {
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 0.85em;
+    background: rgb(235, 235, 235);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+pre {
+    background: rgb(235, 235, 235);
+    padding: 1em;
+    overflow-x: auto;
+    border-radius: 3px;
+}
+
+pre code { background: none; padding: 0; }
+
+hr { border: none; border-top: 1px solid rgb(200, 200, 200); margin: 2em 0; }
+
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border: 1px solid rgb(200, 200, 200); padding: 0.5em; text-align: left; }
+th { background: rgb(235, 235, 235); }
+
+img { max-width: 100%; height: auto; }
+
+.title-block {
+    text-align: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.title-block h1 { margin: 0 0 1.5em 0; font-size: 1.8rem; }
+.title-block .byline { font-size: 0.9rem; color: rgb(85, 85, 85); margin-bottom: 0.3em; }
+.title-block .author { font-size: 1.15rem; }
+
+#toc {
+    margin-top: 2em;
+    margin-bottom: 0;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+#toc-heading { margin-top: 0; font-size: 1.2rem; color: rgb(51, 51, 51); }
+#toc ol { padding-left: 1.5em; margin: 0; font-family: Charter, Georgia, 'Times New Roman', serif; }
+#toc li { margin-bottom: 0.5em; }
+#toc a { font-family: Charter, Georgia, 'Times New Roman', serif; color: rgb(25, 25, 25); text-decoration: none; }
+#toc a:hover { color: rgb(26, 195, 255); text-decoration: underline; }
+
+.chapter {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    min-height: 80vh;
+}
+
+.chapter:last-of-type { border-bottom: none; }
+.chapter h2:first-child { margin-top: 0; }
+
+.back-to-top {
+    display: block;
+    margin-top: 2em;
+    font-size: 0.75rem;
+    color: rgb(153, 153, 153);
+    text-decoration: none;
+}
+
+.back-to-top:hover { color: rgb(26, 195, 255); }
+
+/* ── screenplay layout ──────────────────────────────────────────────── */
+
+body.screenplay {
+    max-width: 7in;
+    line-height: 1.5;
+}
+
+body.screenplay h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1.5em;
+}
+
+.scene-heading {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.character {
+    margin-left: 42%;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dialogue {
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-top: 0;
+    margin-bottom: 0.75em;
+}
+
+.character + .dialogue {
+    margin-top: 0;
+}
+
+.action {
+    margin-top: 0;
+    margin-bottom: 0.75em;
+}
+
+.section-label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: rgb(120, 120, 120);
+}
+
+body.screenplay hr.section-break {
+    margin: 2.5em 0 0.5em 0;
+}
+
+/* ── screenplay responsive: tablet ─────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .character {
+        margin-left: 35%;
+    }
+    .dialogue {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+/* ── screenplay responsive: mobile ─────────────────────────────────── */
+
+@media (max-width: 600px) {
+    body.screenplay {
+        max-width: 100%;
+    }
+    .character {
+        margin-left: 0;
+        font-weight: bold;
+    }
+    .dialogue {
+        margin-left: 1em;
+        margin-right: 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body { color: rgb(204, 204, 204); background: rgb(26, 26, 26); }
+    h1 { color: rgb(224, 224, 224); }
+    h2 { color: rgb(224, 224, 224); }
+    h3 { color: rgb(224, 224, 224); }
+    blockquote { border-left-color: rgb(102, 102, 102); color: rgb(170, 170, 170); }
+    a { color: rgb(204, 204, 204); }
+    code, pre { background: rgb(40, 40, 40); }
+    hr { border-top-color: rgb(102, 102, 102); }
+    th, td { border-color: rgb(102, 102, 102); }
+    th { background: rgb(40, 40, 40); }
+    .title-block { border-bottom-color: rgb(102, 102, 102); }
+    .title-block .byline { color: rgb(170, 170, 170); }
+    #toc { border-bottom-color: rgb(102, 102, 102); }
+    #toc-heading { color: rgb(224, 224, 224); }
+    #toc a { color: rgb(204, 204, 204); }
+    .chapter { border-bottom-color: rgb(51, 51, 51); }
+    .back-to-top { color: rgb(102, 102, 102); }
+    .section-label { color: rgb(153, 153, 153); }
+}
+    </style>
+</head>
+<body class="screenplay">
+<h1 id="benjamin-the-sorcerer">BENJAMIN THE SORCERER</h1>
+<p class="character">NARRATOR</p>
+<p class="dialogue">Benjamin had been walking for what felt like a very long time.</p>
+<p class="dialogue">His parents were somewhere ahead of him. They had to be. Every soul he spoke to had heard the same rumors—two living people, passing through the Underworld—but no one had seen them. No one knew who had brought them here, or why, or where they had gone.</p>
+<p class="dialogue">Now he was picking his way across the slick cobblestones of a nameless port town, rain falling in a thin, cold drizzle. Lanterns burned in the windows with flames that gave no warmth. The dead passed him without looking, intent on their own errands, as though death were merely another kind of living.</p>
+<p class="dialogue">Benjamin was growing tired. Soon he would need food, and somewhere to rest. But more than either of those, he needed help. A friend. Someone willing to point him in the right direction. The dead, it seemed, had no time for such things.</p>
+<p class="dialogue">The houses leaned together along the street like weary men. Benjamin was quite sure he had passed them before.</p>
+<p class="dialogue">He was about to turn back when he noticed a narrow lane branching off to the left, sloping gently downward—toward the port. Sailors heard things. Sailors always had.</p>
+<p class="dialogue">At the water’s edge, the buildings fell away as if a curtain had been drawn back. A grey-green sea stretched to the horizon, and pale shapes moved beneath its surface, slow and distant, like ghosts of submarines.</p>
+<p class="dialogue">That was when he heard the music.</p>
+<p class="dialogue">A guitar, plucked slowly. And a voice—deep and rich, seeming to rise from somewhere below the earth itself. The melody was simple, and sad. Benjamin followed it to the end of the wharf, where a figure sat upon a coil of rope, playing.</p>
+<p class="dialogue">The figure wore a deep hood that concealed all but a large, faintly green nose and two pale, oversized hands moving gently over the strings. A raven perched nearby on a wooden post, watching Benjamin with a single, shining eye.</p>
+<p class="dialogue">The music stopped.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">You look lost.</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">The figure set the guitar aside.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">Have you wandered far?</p>
+<p class="character">BENJAMIN</p>
+<p class="dialogue">Very far.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">Yes. A journey few attempt while still alive.</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">He paused, as though listening to something Benjamin could not hear.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">You are looking for your parents.</p>
+<p class="character">BENJAMIN</p>
+<p class="dialogue">You know where they are?</p>
+<p class="dialogue">HOODED FIGURE I know how to find out.</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">One pale hand lifted and gestured toward the sea. Out in the gloom, a ship lay at anchor—black hull, black sails, lanterns burning with a sickly green fire.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">The Naglfar. Her captain is Bartholomew Roberts. He and his crew possess something that does not belong to them. A seeing stone.</p>
+<p class="character">BENJAMIN</p>
+<p class="dialogue">What’s a seeing stone?</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">For a moment, the hooded figure said nothing.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">An object that allows a skilled practitioner to see what is—no matter how near, or how far.</p>
+<p class="character">BENJAMIN</p>
+<p class="dialogue">Then you could tell me where my parents are.</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">The figure inclined his head.</p>
+<p class="character">BENJAMIN</p>
+<p class="dialogue">Did they steal it from you?</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">Not from me. From a creature of the deep—older than the world. But that is not your concern. Your concern is your parents.</p>
+<p class="character">NARRATOR</p>
+<p class="dialogue">He turned back toward the sea.</p>
+<p class="character">HOODED FIGURE</p>
+<p class="dialogue">Bring me the stone.</p>
+</body>
+</html>
